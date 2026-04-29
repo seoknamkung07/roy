@@ -1,0 +1,15 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: roy-fargate-cluster
+  region: ap-northeast-3
+  version: "1.34"
+
+# Fargate 프로필 설정
+fargateProfiles:
+  - name: eks-roy-clusert-fp
+    selectors:
+      # 이 네임스페이스에 배포되는 Pod은 자동으로 Fargate에서 실행됨
+      - namespace: default
+      - namespace: kube-system
