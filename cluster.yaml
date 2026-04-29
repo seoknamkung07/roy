@@ -1,0 +1,17 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: roy-eks-cluster
+  region: ap-northeast-2
+  version: "1.34"
+
+managedNodeGroups:
+  - name: roy-eks-ng
+    instanceType: t3.medium
+    desiredCapacity: 2
+    minSize: 1
+    maxSize: 2
+    ssh:
+      allow: true
+      publicKeyPath: /home/cloudshell-user/roy.pub
